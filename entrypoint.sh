@@ -20,5 +20,14 @@ printf "%s" "put -r $5 $6" >$TEMP_SFTP_FILE
 sftp -b $TEMP_SFTP_FILE -P $3 $7 -o StrictHostKeyChecking=no -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2
 
 echo 'deploy success'
+
+if [ -z "$8" ]
+then
+    echo 'no ssh command'
+else
+    echo 'ssh command start'
+    ssh -o StrictHostKeyChecking=no -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 "cd $6;$8"
+    echo 'ssh command success'
+
 exit 0
 
