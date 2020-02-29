@@ -28,6 +28,6 @@ else
     echo 'ssh command start'
     ssh -o StrictHostKeyChecking=no -i $TEMP_SSH_PRIVATE_KEY_FILE $1@$2 "cd $6;$8"
     echo 'ssh command success'
+fi
 
 exit 0
-
