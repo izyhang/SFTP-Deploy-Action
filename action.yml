@@ -5,24 +5,23 @@ inputs:
   username:
     description: 'username'
     required: true
-  server:  
+    default: 'root'
+  server:
     description: 'your sftp server'
     required: true
-  port: 
+  port:
     description: 'your sftp server port, default to 22'
     required: true
-    default: "22"
+    default: '22'
   ssh_private_key:
     description: 'you can copy private_key from your *.pem file, keep format'
     required: true
   local_path:
     description: 'will put all file under this path'
     required: true
-    default: ./*
   remote_path:
     description: 'files will copy to under remote_path'
     required: true
-    default: /
 
   args:
     description: 'sftp args'
@@ -31,7 +30,6 @@ inputs:
   ssh_command:
     description: 'execute command when login your server after sftp deploy success'
     required: false
-
 
 runs:
   using: 'docker'
@@ -47,5 +45,5 @@ runs:
     - ${{ inputs.ssh_command }}
 
 branding:
-  icon: 'upload-cloud'  
+  icon: 'upload-cloud'
   color: 'purple'
